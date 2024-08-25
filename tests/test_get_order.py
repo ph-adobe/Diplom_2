@@ -9,7 +9,6 @@ class TestGetOrder:
 
     @allure.title("Test getting orders as an authorized user")
     def test_get_orders_authorized_user(self, authorization_data_user_with_orders):
-        print(authorization_data_user_with_orders)
         status_code, response_body = self.api_orders.get_user_orders(authorization_data_user_with_orders)
         assert status_code == 200
         assert len(response_body["orders"]) == 5
