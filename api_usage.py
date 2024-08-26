@@ -34,11 +34,8 @@ class Users:
     @allure.step("Get access token")
     def get_access_token(self, login_data):
         status_code, response_body = self.login(login_data)
-        if status_code == 200:
-            access_token = response_body["accessToken"]
-            return access_token
-        else:
-            print("Что-то пошло не так, не удалось получить accessToken.")
+        access_token = response_body["accessToken"]
+        return access_token
 
     @allure.step("Update user data")
     def update_user_data(self, changed_data, login_data=None):
